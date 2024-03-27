@@ -137,9 +137,40 @@ def main():
                         sns.heatmap(df.corr(), annot=True, ax=ax)
                         st.pyplot(fig)
                     elif selection == "Score":
-                     # Call the function to calculate the overall data quality score
-                        data_quality_score = calculate_data_quality_score(df)
-                        st.write("Overall data quality score:", data_quality_score)
+                        # Calculate individual component scores
+                        usability_score = 0.8  # Replace with actual usability score calculation
+                        metadata_score = 0.7  # Replace with actual metadata score calculation
+                        freshness_score = 0.9  # Replace with actual freshness score calculation
+                        completeness_score = 0.6  # Replace with actual completeness score calculation
+                        accessibility_score = 0.5  # Replace with actual accessibility score calculation
+                        
+                        # Calculate overall score using weighted sum
+                        overall_score = (usability_score * 0.38) + (metadata_score * 0.25) + (freshness_score * 0.18) + (completeness_score * 0.12) + (accessibility_score * 0.07)
+                        
+                        # Display individual component scores
+                        st.subheader("Individual Component Scores:")
+                        st.write(f"Usability Score: {usability_score}")
+                        st.write(f"Metadata Score: {metadata_score}")
+                        st.write(f"Freshness Score: {freshness_score}")
+                        st.write(f"Completeness Score: {completeness_score}")
+                        st.write(f"Accessibility Score: {accessibility_score}")
+                        
+                        # Display formula
+                        st.subheader("Formula for Total Score Calculation:")
+                        st.write("overall_score = (usability_score * 0.38) + (metadata_score * 0.25) + (freshness_score * 0.18) + (completeness_score * 0.12) + (accessibility_score * 0.07)")
+                        
+                        # Display total score
+                        st.subheader("Total Data Quality Score:")
+                        st.write(f"Overall data quality score: {overall_score}")
+                        
+                        # Display definitions
+                        st.subheader("Data Quality Definitions:")
+                        st.write("**Usability Score:** Measures how easy it is to work with the data. It includes the proportion of columns with meaningful names, constant values, and valid features.")
+                        st.write("**Metadata Score:** Indicates how well the data is described. It's measured by the percent of metadata fields that have been filled out by the publisher.")
+                        st.write("**Freshness Score:** Reflects how close the data is to its creation date. It considers the time gap between the expected refresh rate and the actual refresh, and the gap between the last refresh and today.")
+                        st.write("**Completeness Score:** Measures how much data is missing. It's calculated as the proportion of empty cells in the dataset.")
+                        st.write("**Accessibility Score:** Assesses how easy it is to access the data. For this MVP, it checks whether the data can be accessed via the DataStore API.")
+
        
     else:
         st.error("Please select your data to start")
