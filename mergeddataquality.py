@@ -137,9 +137,9 @@ def main():
                         sns.heatmap(df.corr(), annot=True, ax=ax)
                         st.pyplot(fig)
                     elif selection == "Score":
-    # Call the function to calculate the overall data quality score
-    data_quality_score = calculate_data_quality_score(df)
-    st.write("Overall data quality score:", data_quality_score)
+                     # Call the function to calculate the overall data quality score
+                        data_quality_score = calculate_data_quality_score(df)
+                        st.write("Overall data quality score:", data_quality_score)
        
     else:
         st.error("Please select your data to start")
