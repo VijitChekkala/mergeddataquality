@@ -1,0 +1,13 @@
+streamlit
+numpy
+scipy
+pandas
+streamlit_pandas_profiling
+plotly
+statsmodels
+matplotlib
+altair
+scikit-learn
+seaborn
+sympy
+pydantic-settings
